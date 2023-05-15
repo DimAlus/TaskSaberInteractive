@@ -59,7 +59,7 @@ Commands:
 ### List CLI
 ```bash
 Usage:
-    app.py <list> [<tasks> | <builds>] [<args> ...]
+    app.py <list> [<tasks> | <builds>] [<name> ...]
 
 Description:
     Show a list of tasks and builds.
@@ -169,3 +169,77 @@ app.py -s other list
 # Инструкция по запуску
 С выбором файлов `tasks.yaml` и `builds.yaml` мы разобрались в прошлой главе.
 
+## Справка
+Чтобы получить справку по программе, необходимо использовать ключ `-h`.
+
+Чтобы получить детальную информацию по определенной команде, необходимо также написать ее имя.
+
+Например:
+```bash
+app.py -h
+app.py list -h
+```
+
+## App List
+```bash
+Usage:
+    app.py <list> [<tasks> | <builds>]
+
+Description:
+    Show a list of tasks and builds.
+
+Commands:
+    task        Show a list of tasks.
+    builds      Show a list of builds.
+
+```
+В случае, если не указаны подкоманды (`tasks`, `builds`), программа выведет сперва список задач, затем список сборок. 
+
+Если заданы обе подкоманды, будет выведен только список сборок.
+
+Например:
+```bash
+rem Вывод списка сборок и задач
+app.py list
+
+rem Вывод списка задач
+app.py list tasks
+```
+
+## App Get
+```bash
+Usage:
+    app.py <get> [(<tasks> | <builds>) [<name> ...]]
+
+Description:
+    Show a datails of tasks and builds.
+
+Commands:
+    task        Show a details of tasks.
+    builds      Show a details of builds.
+    name        Name of task ot build for details.
+
+```
+Подкоманды `task` и `tasks`, `build` и `builds` равнозначны соответственно.
+
+В случае, если не указаны подкоманды (`tasks`, `builds`), программа выведет сперва детальную информацию по всем задачам, затем по сборкам. 
+
+Если заданы обе подкоманды, вторая будет расцениваться как параметр `<name>`.
+
+Если `<name>` не задан, будет выведена информация по всем элементам.
+
+`<name>` можно передавать списком, через пробел.
+
+Например:
+```bash
+rem Вывод информации по задачам t1 и t2
+app.py -c get task t1 t2
+
+rem Вывод информации по сборке task
+app.py -c get build task
+```
+
+## Примечание
+Если используется терминал, поддерживающий ANSI последовательности (не cmd.exe), рекомендуется использовать флаг -с, выделяющий проблемные места цветом.
+
+Таким образом при ошибке чтения задач или сборок будут выводиться цветные предупреждения, а команда `get` будет выделять **красным** не найденные задачи, а **желтым** найденные циклы при анализе зависимостей.

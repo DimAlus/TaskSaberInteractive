@@ -1,7 +1,7 @@
 """Task builder
 
 Usage:
-    app.py <list> [<tasks> | <builds>] [<args> ...]
+    app.py <list> [<tasks> | <builds>]
 
 Description:
     Show a list of tasks and builds.
