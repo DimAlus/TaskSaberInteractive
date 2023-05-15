@@ -1,0 +1,14 @@
+[standard]
+[standard.tasks]
+path = "./data/tasks.yaml"
+
+[standard.builds]
+path = "./data/builds.yaml"
+
+
+[other]
+[other.tasks]
+path = "./data/tasks_other.yaml"
+
+[other.builds]
+path = "./data/builds_other.yaml"
