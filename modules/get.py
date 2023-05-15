@@ -1,7 +1,7 @@
 """Task builder
 
 Usage:
-    app.py get [(<tasks> | <builds>) [<name> ...]]
+    app.py <get> [(<tasks> | <builds>) [<name> ...]]
 
 Description:
     Show a datails of tasks and builds.
